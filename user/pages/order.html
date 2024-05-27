@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../user/css/order.css">
+    <link rel="stylesheet" href="../../admin/css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Order</title>
+</head>
+<body>
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-menu">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="header-right">
+                        <div class="user-menu">
+                            <ul class="header-right-list">
+                                <li><a href="../../login.html" id="login"><i class="fa fa-user"></i> Login</a></li>
+                                <li><a href="" id="logout" class="hidden"><i class="fa fa-user"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="wrapper">
+            <div class="banner">
+                <div class ="banner-img">
+                    <img src="../../img/logo.png">
+                </div>
+                <div class="banner-cart">
+                    <a href="#">
+                        Card - <span class="cart-amunt">$100</span>
+                        <i class="fa fa-shopping-cart"></i>
+                         <span class="product-count">5</span>
+                    </a>        
+                </div>
+            </div>
+        </div>              
+    </header>
+    <nav class="h_nav">
+        <div class="h_nav-wrapp wrapper">
+            <ul class="h_nav-list">
+                <li class="h_nav-item"><a class="h_nav-link" href="../../main.html">HOME</a></li>
+                <li class="h_nav-item"><a class="h_nav-link" style="cursor: pointer;" onclick="changePageProduct()">SHOP PAGE</a></li>
+                <li class="h_nav-item"><a class="h_nav-link" href="">WISHLISH</a></li>
+                <li class="h_nav-item"><a class="h_nav-link" href="cart.html">CART</a></li>
+                <li class="h_nav-item hidden" id="checkOrder"><a class="h_nav-link" href="order.html">ORDERS</a></li>
+                <li class="h_nav-item"><a class="h_nav-link" href="#">OTHERS</a></li>
+                <li class="h_nav-item"><a class="h_nav-link" href="#">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="shop">
+        <p>Orders History </p>
+    </div>
+    <section class="main-content">
+        <div class="wrapper single-product-content">
+            <div class="main-nav">
+                <div class="single-search-sidebar">
+                    <h2 class="sidebar-title">Search Your Orders</h2>
+                    <form action="#">
+                        <input class="search-sidebar" type ="text" onkeyup="changeTextSearch(event)" placeholder="Search Order Code">
+                        <br>
+                        
+                    </form>
+                </div>
+                <div class="single-product-sidebar">
+                    <h2 class="sidebar-title">Products</h2>
+                    <div class="product-view">
+                        <div class="img-view">
+                            <a href="single-product.html"><img src="/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
+                        </div>
+                        <div class="details-view">
+                            <p><a href="single-product.html">Sony Smart TV - 2015</a></p>
+                            <div class="product-wid-price">
+                                <ins>$400.00</ins> <del>$425.00</del>
+                            </div>                
+                        </div>
+                    </div>
+                    <div class="product-view">
+                        <div class="img-view">
+                            <a href="single-product.html"><img src="/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
+                        </div>
+                        <div class="details-view">
+                            <p><a href="single-product.html">Sony Smart TV - 2015</a></p>
+                            <div class="product-wid-price">
+                                <ins>$400.00</ins> <del>$425.00</del>
+                            </div>                
+                        </div>
+                    </div>
+                    <div class="product-view">
+                        <div class="img-view">
+                            <a href="single-product.html"><img src="/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
+                        </div>
+                        <div class="details-view">
+                            <p><a href="single-product.html">Sony Smart TV - 2015</a></p>
+                            <div class="product-wid-price">
+                                <ins>$400.00</ins> <del>$425.00</del>
+                            </div>                
+                        </div>
+                    </div>
+                    <div class="product-view">
+                        <div class="img-view">
+                            <a href="single-product.html"><img src="/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
+                        </div>
+                        <div class="details-view">
+                            <p><a href="single-product.html">Sony Smart TV - 2015</a></p>
+                            <div class="product-wid-price">
+                                <ins>$400.00</ins> <del>$425.00</del>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-posts">
+                    <h2 class="sidebar-title">RECENT POSTS</h2>
+                    <div class="footer-user">
+                        <p class="user-p"><a href="#">My account</a></p>
+                        <p class="user-p"><a href="#">Order History</a></p>
+                        <p class="user-p"><a href="#">Wishlist</a></p>
+                        <p class="user-p"><a href="#">Vendor Contact</a></p>
+                        <p class="user-p"><a href="#">Front page</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content" >
+                <div class="order-details">
+                        <table class="tbl-cart table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Order Code</th>
+                                    <th>Customer</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-body">
+                               
+                            </tbody>
+                        </table>
+                        <div style="display: flex; justify-content: end; align-items: center;">
+                            <button onclick="changePage(-1)">Previous</button>
+                            <p id="page-list"></p>
+                            <button onclick="changePage(1)">Next</button>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">                                 
+                                        <input type="hidden" id="orderId">
+                                            <div class="form-group">
+                                                <label>Customer:</label>
+                                                <span id="customer"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Phone:</label>
+                                                <span id="phone"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <table class="table table-striped table-bordered table-hover">
+                                                    <thead>
+                                                        <tr align="center">
+                                                            <th>Image</th>
+                                                            <th>Product</th>
+                                                            <th>Quantity</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="list-order-item">
+                    
+                                                    </tbody>
+                                                </table>
+                                            </div>  
+                                            <div class="form-group">
+                                                <label>Total:</label>
+                                                <span id="total"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Action:</label>
+                                                <button type="button" id="cancelOrder" class="btn btn-danger" onclick="cancelOrder()">Cancel Order</button>
+                                            </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-success" onclick="reloadPage()">OK</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="footer-group">
+        <div class="wrapper">
+            <div class="footer-item">
+                <div class="footer-about">
+                    <h2 class="footer-h">u<span class="span-h">Stora</span></h2>
+                    <p class="footer-h">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae earum officiis quis ex odit reiciendis veritatis dignissimos atque repudiandae quod nesciunt neque pariatur amet eius a, at, minima porro placeat.
+                    </p>
+                    <div class="footer-icon">
+                        <a class="icon-f" href="#" target="_blank">
+                            <i class="fa-brands fa-square-facebook"></i>
+                        </a>
+                        <a class="icon-f icon-b" href="#" target="_blank">
+                            <i class="fa-brands fa-square-twitter"></i>
+                        </a>
+                        <a class="icon-f icon-b" href="#" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a class="icon-f icon-b" href="#" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div> 
+                </div>
+                <div class="footer-user">
+                    <h2 class="footer-h">User Navigation</h2>
+                    <p class="user-p"><a>My account</a></p>
+                    <p class="user-p"><a>Order History</a></p>
+                    <p class="user-p"><a>Wishlist</a></p>
+                    <p class="user-p"><a>Vendor Contact</a></p>
+                    <p class="user-p"><a>Front page</a></p>
+                </div>
+                <div class="footer-user">
+                    <h2 class="footer-h">Categories</h2>
+                    <p class="user-p"><a>Moblie Phone</a></p>
+                    <p class="user-p"><a>Home Accesseries</a></p>
+                    <p class="user-p"><a>LED TV</a></p>
+                    <p class="user-p"><a>Computer</a></p>
+                    <p class="user-p"><a>Gadets</a></p>
+                </div>
+                <div class="subcribe-email">
+                    <h2 class="footer-h">Newsletter</h2>
+                    <p class="footer-h">Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                    <form class="form-email" action="#">
+                        <input type="text" name="txtEmail" placeholder="Type your email">
+                        <br>
+                        <button class="btn-email">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="footer-end">
+                <div class="footer-left">
+                    &copy; 2015 uCommerce. All Rights Reserved. <a href="#">freshDesignweb.com</a>
+                </div>
+                <div class="footer-right">
+                    <i class="fa-brands fa-cc-discover"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                    <i class="fa-brands fa-cc-visa"></i>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../user/js/order.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

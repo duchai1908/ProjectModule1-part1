@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
+    <meta name="author" content="">
+    <title>Admin - Khoa Phạm</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../admin/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link href="../../admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Ckeditor -->
+    <script src="../../ckeditor/ckeditor.js"></script>
+    <!-- MetisMenu CSS -->
+    <link href="../../admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- DataTables CSS -->
+    <link href="../../admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../../admin/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/user.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Shopping</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>ABC XYZ</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="" onclick="logout(event)"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                       
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../../pages/category/list.html">List Category</a>
+                                </li>
+                                <li>
+                                    <a href="../../pages/category/add.html">Add Category</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../products/list.html">List Product</a>
+                                </li>
+                                <li>
+                                    <a href="../products/add.html">Add Product</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i>Comment<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../comment/list.html">List Status</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i> Order<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../order/list.html">List Order</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Admin<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../../pages/admin-user/list.html">List Admin</a>
+                                </li>
+                                <li>
+                                    <a href="../../pages/admin-user/add.html">Add Admin</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../../pages/user/list.html">List User</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h1 class="page-header">Admin
+                            <small>list</small>
+                        </h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                    <div class="col-lg-12">
+                        <div class="search-form-admin">
+                            <input type="search" placeholder="Search" class="search" onkeyup="changeTextSearch(event)">
+                            <i class="fa fa-search"></i>
+                        </div> 
+                    </div>
+                    <!-- Day la noi chua noi dung -->
+                    <div class="col-lg-12">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-5" style="padding-bottom:120px">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr align="center">
+                                        <th>ID</th>
+                                        <th>Username</th>
+                                        <th>Level</th>
+                                        <th>Delete</th>
+                                        <th>Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-admin">
+                                </tbody>
+                            </table>
+                             <div style="display: flex; justify-content: end; align-items: center;">
+                                <button onclick="changePage(-1)">Previous</button>
+                                <p id="page-list"></p>
+                                <button onclick="changePage(1)">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Day la noi chua noi dung -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form id="updateForm">
+                        <div class="modal-body">
+                            <input type="hidden" id="adminId">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control" id="newName" name="name">
+                                <span id="error1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Email:</label>
+                                <input type="text" class="form-control" id="newEmail" name="email">
+                            </div>
+                            <div class="form-group">
+                                <a href="" id="changePassword">Change password</a>
+                            </div>
+                            <div class="disable-form" id="disable-form">
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Old Password:</label>
+                                    <input type="password" class="form-control" id="oldPass" disabled>
+                                    <span id="error2"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">New Password:</label>
+                                    <input type="password" class="form-control" id="newPass" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Confirm Password:</label>
+                                    <input type="password" class="form-control" id="confirmPass" disabled>
+                                    <span id="error3"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>User Level</label>
+                                <label class="radio-inline">
+                                    <input name="permision" value="1" type="radio">Admin
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="permision" value="2" type="radio">Manager
+                                </label>
+                            </div>
+                        
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../../admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../admin/dist/js/sb-admin-2.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="../../admin/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="../../admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="../../admin/js/myscript.js"></script>
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../js/admin-user/list.js">
+    
+    </script>
+    <script src="../../js/logout.js"></script>
+</body>
+
+</html>

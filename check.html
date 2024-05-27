@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <title>Document</title>
+  <style>
+    *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+option,
+select {
+    outline: none;
+    padding: 5px 10px;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+#form-scope {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 48px;
+    height: 100vh;
+    background-color: none;
+    background-color: #c7bebeaf;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.label-product {
+    display: inline-block;
+    min-width: 100px;
+}
+
+.scope-input {
+    margin: 10px 0;
+}
+
+.form-product {
+    width: 400px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    box-shadow: 1px 1px 1px 1px #999;
+    height: fit-content;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 56px 0;
+}
+
+table,
+th,
+td {
+    border: 1px solid;
+}
+
+.page-item {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid #999;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.page-active {
+    background-color: blue;
+}
+
+.page-item:hover {
+    background-color: aqua;
+}
+  </style>
+</head>
+<body>
+    <div id="toastify" style="width: 310px; background-color: red; position: fixed; top: 20px; right: 20px; padding: 10px; overflow: hidden;
+    border-radius: 4px; z-index: 999;" class="hidden">
+    <p id="toastify-message" style="text-align: justify; color: white;"></p>
+    </div>
+
+<section id="form-scope" class="hidden">
+    <form class="form-product" onsubmit="submitForm(event)">
+        <h4 style="text-align: center;">Product</h4>
+        <div class="scope-input">
+            <label for="name" class="label-product">Name: </label>
+            <input id="name" name="name" type="text">
+            <input type="hidden" id="id" value="">
+        </div>
+        <div class="scope-input">
+            <label for="price" class="label-product">Price: </label>
+            <input id="price" name="price" type="number" min="1">
+        </div>
+        <div class="scope-input">
+            <label for="quantity" class="label-product">Quantity: </label>
+            <input id="quantity" name="quantity" type="number" min="1">
+        </div>
+        <div class="scope-input">
+            <label for="category" class="label-product">Category: </label>
+            <select name="category" id ="category">
+                
+            </select>
+        </div>
+        <div class="scope-input">
+            <label for="description" class="label-product">Description: </label>
+            <textarea name="description" id="description" cols="20" rows="10"></textarea>
+        </div>
+        <div class="scope-input">
+            <label for="input-image" class="label-product pointer">Image: </label>
+            <input id="input-image" type="file" accept="image/*" hidden onchange="convertToBase64()">
+            <img id="image-product" width="100px" src="" alt="img">
+        </div>
+        <div style="display: flex; justify-content: center; gap: 12px;">
+            <button type="button" onclick="closeForm()">Cancel</button>
+            <button type="submit" id="btn">Submit</button>
+        </div>
+    </form>
+</section>
+
+<main style="width: 1200px; margin: 0 auto;">
+    <section id="action" style="padding-top: 48px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <button onclick="openForm()">Add</button>
+            </div>
+            <div>
+                <span>Select: </span>
+                <select name="category" id ="cateSelected" onchange="changeCategory(event)">
+                   
+                </select>
+            </div>
+            <div>
+                <input type="text" onkeyup="changeTextSearch(event)">
+                <!-- <button onclick="render()">Search</button> -->
+            </div>
+        </div>
+    </section>
+    <section id="table">
+        <table>
+            <caption style="font-weight: bold; font-size: 20px; margin: 12px;">Products table</caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </section>
+    <section id="pagination" style="display: flex; align-items: center; justify-content: end; gap: 24px;">
+        <div>
+            <select name="" id="" onchange="changePageSize(event)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+        <div style="display: flex; justify-content: end; align-items: center;">
+            <button onclick="changePage(-1)">Previous</button>
+            <p id="page-list"></p>
+            <button onclick="changePage(1)">Next</button>
+        </div>
+    </section>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="check.js">
+        //B7 Khởi tạo các giá trị 
+</script>
+</body>
+</html>

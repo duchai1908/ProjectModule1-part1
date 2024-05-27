@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./user/css/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="login-left">
+            <h2>Create your account</h2>
+            <form action="" id="form-register">
+                <div class="form-login-input">
+                    <p>Name</p>
+                    <input type="text" placeholder="Username" id="txtUsername" name="name" required>
+                    <br>
+                    <span id="error1">(Minimum 8 character)</span>
+                </div>
+                <div class="form-login-input">
+                    <p>Email</p>
+                    <input type="email" placeholder="Username" id="txtUseremail" name="email">
+                    <span id="error2"></span>
+                </div>
+                <div class="form-login-input">
+                    <p>Phone</p>
+                    <input type="number" placeholder="Username" id="txtUserphone" name="phone" required>
+                </div>
+                <div class="form-login-input">
+                    <p>Password</p>
+                    <input type="password" placeholder="Password" id="txtUserpwd" name="password">
+                    <span id="error3"></span>
+                    <br>
+                    <span>(Minimum eight characters, at least one letter,
+                        <br> one number and one special character)
+                    </span>
+                </div>     
+                <div class="form-login-input">
+                    <p>Confirm password</p>
+                    <input type="password" placeholder="Password" id="txtConfirmpwd">
+                    <span id="error4"></span>
+                </div> 
+                <a href="login.html">Already have a account?</a>
+                <div class="form-login-input">
+                    <button class="btn-login btn">SIGN IN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./user/js/register.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cate.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="hidden" id="opForm">
+        <form class="form-product" onsubmit="submitForm(event)">
+            <p> Category Name: </p>
+            <input type="text" name="name">
+            <p>
+                <button type="button" onclick="closeForm()">Cancel</button>
+                <button type="submit">Add</button>
+            </p>
+        </form>
+    </div>
+    <div class="action">
+        <button class="btn-open" id="btn-open" onclick="openForm()">Add</button>
+    </div>
+    <div>
+        <p>Search</p>
+        <input type="text" id="search" onkeyup="changeTextSearch(event)">
+    </div>
+    <div class="table">
+        <table border="1">
+            <caption style="font-weight: bold; font-size: 20px; margin: 12px;">Products table</caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+    <section id="pagination" style="display: flex; align-items: center; justify-content: end; gap: 24px;">
+        <div>
+            <select name="" id="" onchange="changePageSize(event)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+        <div style="display: flex; justify-content: end; align-items: center;">
+            <button onclick="changePage(-1)">Previous</button>
+            <p id="page-list"></p>
+            <button onclick="changePage(1)">Next</button>
+        </div>
+    </section>
+    <script src="cate.js"></script>
+</body>
+</html>
